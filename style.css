@@ -1,0 +1,529 @@
+:root {
+    --branco: #fdf7fa;
+    --amarelo-1: #fce69c;
+    --amarelo-2: #ffce1f;
+    --marrom-1: #7b5b51;
+    --marrom-2: #432d27;
+    --preto: #0b0909;
+
+    --fonte-padrao: "Urbanist - SemiBold";
+    --fonte-medium: "Urbanist - Medium";
+    --fonte-light: "Urbanist - Light";
+    --fonte-bold: "Urbanist - Black";
+}
+
+@font-face {
+    font-family: "Urbanist - SemiBold";
+    src: url("../fonts/Urbanist-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Urbanist - Medium";
+    src: url("../fonts/Urbanist-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Urbanist - ExtraBold";
+    src: url("../fonts/Urbanist-ExtraBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Urbanist - Black";
+    src: url("../fonts/Urbanist-Black.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Urbanist - Light";
+    src: url("../fonts/Urbanist-Light.ttf") format("truetype");
+}
+
+::-webkit-scrollbar {
+    width: 1px;
+    position: absolute;
+    background-color: var(--preto);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--amarelo-2);
+    border-radius: 100%;
+}
+
+html {
+    font-family: var(--fonte-padrao);
+    font-size: 20px;
+    position: relative;
+}
+
+/* --------------- HEADER --------------- */
+
+header {
+    height: 8rem;
+}
+
+.navbar {
+    display: grid;
+    text-align: center;
+    justify-items: center;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: .5rem;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar--item {
+    position: relative;
+    display: inline-block;
+}
+
+.item--texto {
+    width: fit-content;
+    text-align: start;
+}
+
+.item--onda {
+    display: flex;
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    transition: all .25s;
+}
+
+.item--texto:hover{
+    cursor: pointer;
+}
+
+.item--texto:hover ~ .item--onda {
+    opacity: 1;
+}
+
+.highlighted {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top: 1rem;
+    left: 0;
+}
+
+.botao__reserva {
+    grid-column: span 2;
+    background-color: var(--amarelo-2);
+    width: max-content;
+    padding: .8rem 5rem;
+    border-radius: 1.5rem;
+    transition: all .25s;
+}
+
+.botao__reserva:hover {
+    cursor: pointer;
+    filter: brightness(0.85);
+}
+
+/* --------------- HOME --------------- */
+
+.main__home {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.home__topo {
+    display: grid;
+    height: 20rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.home__topo--textos {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    top: 20%;
+    left: 35%;
+    row-gap: 1rem;
+}
+
+.home__topo--textos p:first-child {
+    width: fit-content;
+    background-color: var(--amarelo-1);
+    padding: .5rem;
+    border-radius: 1.5rem;
+}
+
+.home__topo--textos .destaque {
+    width: 30rem;
+    font-family: var(--fonte-bold);
+    font-size: 3.5rem;
+}
+
+.home__topo--textos .underline {
+    position: relative;
+}
+
+.home__topo--textos .underline img {
+    position: absolute;
+    width: 100%;
+    top: 3.5rem;
+    left: 0;
+}
+
+
+.home__topo--imagens {
+    position: relative;
+}
+
+.imagens--copo {
+    position: absolute;
+    top: 1rem;
+    left: 8rem;
+    width: 15rem;
+    rotate: -10deg;
+}
+
+.imagens--graos-1 {
+    width: 35rem;
+    max-height: 100%;
+    position: absolute;
+    rotate: 20deg;
+    top: 1rem;
+    left: -65rem;
+}
+
+.imagens--graos-2 {
+    width: 47rem;
+    max-height: 100%;
+    position: absolute;
+    left: -7rem;
+}
+
+.home__baixo {
+    height: 30rem;
+    display: grid;
+    background-color: var(--marrom-2);
+    grid-template-columns: repeat(2, 1fr);
+    /* justify-items: center; */
+}
+
+.home__baixo--foto {
+    background-image: url("arquivos/HOME/foto.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.home__baixo--textos {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    row-gap: 1rem;
+}
+
+.home__baixo--textos .destaque {
+    font-family: var(--fonte-bold);
+    font-size: 3.5rem;
+    color: var(--branco);
+}
+
+/* --------------- HOME --------------- */
+
+/* --------------- PRODUTOS --------------- */
+
+.produtos__texto, .reserva__texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    row-gap: 2rem;
+    padding: 2rem 0 4rem;
+}
+
+.produtos__titulo, .reserva__titulo {
+    position: relative;
+    font-family: var(--fonte-bold);
+    font-size: 3.5rem;
+}
+
+.produtos__titulo img, .reserva__titulo img {
+    position: absolute;
+    top: 2.5rem;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.produtos__lista {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background-color: var(--marrom-2);
+    row-gap: 1rem;
+    column-gap: 1rem;
+    align-items: space-between;
+    padding: 3rem 0;
+}
+
+.produtos__bloco:nth-child(2n-1) {
+    justify-self: end;
+}
+
+.produtos__bloco {
+    font-size: 1.2rem;
+    display: flex;
+    padding: 2rem;
+    width: 60%;
+    border: 1px solid var(--marrom-1);
+    border-radius: .5rem;
+}
+
+.produtos__bloco img {
+    width: 4rem;
+}
+
+.produto--texto {
+    margin-left: 1rem;
+}
+
+.produto--nome {
+    font-family: var(--fonte-bold);
+    color: var(--amarelo-1);
+    margin-bottom: .5rem;
+}
+
+.produto--descricao {
+    font-size: 1rem;
+    font-family: var(--fonte-light);
+    color: var(--branco);
+}
+
+/* --------------- PRODUTOS --------------- */
+
+/* --------------- RESERVA --------------- */
+
+.reserva__formulario {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 0;
+    height: 30rem;
+    background-color: var(--marrom-2);
+}
+
+.reserva__formulario form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 75%;
+    background-color: var(--branco);
+    padding: 3.5rem;
+    column-gap: 3.5rem;
+    border: 2px solid var(--amarelo-2);
+    border-radius: 1rem;
+}
+
+.formulario--esquerda {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.formulario--esquerda label {
+    display: flex;
+    flex-direction: column;
+    row-gap: .5rem;
+}
+
+.formulario--esquerda label p {
+    font-size: 1.5rem;
+    font-family: var(--fonte-bold);
+}
+
+.formulario--esquerda input {
+    height: 2rem;
+    font-family: var(--fonte-medium);
+    width: 100%;
+    padding: .5rem;
+    border: 1px solid #a8a8a8;
+    border-radius: .5rem;
+}
+
+.formulario--direita {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.formulario--direita img {
+    width: 100%;
+    height: 387px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: .7rem;
+}
+
+.formulario--botao {
+    font-family: var(--fonte-bold);
+    width: 100%;
+    text-align: center;
+    background-color: var(--amarelo-2);
+    padding: 1rem 0;
+    border-radius: .7rem;
+    transition-property: filter;
+    transition-duration: .25s;
+}
+
+.formulario--botao:hover {
+    cursor: pointer;
+    filter: brightness(0.85);
+}
+/* --------------- RESERVA --------------- */
+
+/* --------------- SOBRE NOS --------------- */
+
+.main__sobre {
+    font-family: var(--fonte-light);
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(2, max-content);
+}
+
+.sobre__topo {
+    height: 30rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.sobre__topo--textos {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    row-gap: 2rem;
+}
+
+.sobre__topo--textos .destaque {
+    position: relative;
+    font-family: var(--fonte-bold);
+    font-size: 3.5rem;
+}
+
+.sobre__topo--textos .destaque img {
+    position: absolute;
+    top: 2.75rem;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.sobre__topo--foto {
+    background-image: url("arquivos/SOBRE\ NOS/foto1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.sobre__baixo--textos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1rem;
+}
+
+.sobre__baixo--textos p:first-child {
+    font-family: var(--fonte-bold);
+    width: fit-content;
+    background-color: var(--amarelo-1);
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+.sobre__baixo--textos p:last-child {
+    text-align: center;
+    color: var(--branco);
+    width: 50%;
+}
+
+.sobre__baixo {
+    height: 15rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: var(--marrom-2);
+}
+
+.sobre__baixo--foto {
+    background-image: url("arquivos/SOBRE\ NOS/foto2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+/* --------------- SOBRE NOS --------------- */
+
+/* --------------- FOOTER --------------- */
+
+footer {
+    background-color: var(--preto);
+    height: 15rem;
+    margin-top: auto;
+
+    display: grid;
+    grid-template-columns: 33.33% 1fr;
+    align-items: center;
+    justify-items: center;
+    font-size: 0.7rem;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo a {
+    height: max-content;
+    width: max-content;
+}
+
+.logo p {
+    font-family: var(--fonte-medium);
+    text-align: center;
+    color: var(--branco);
+    width: 12rem;
+}
+
+.footer {
+    display: grid;
+    width: 70%;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.footer__sections {
+    display: flex;
+    flex-direction: column;
+    row-gap: .5rem;
+}
+
+.footer__titulos {
+    font-size: 1rem;
+    color: var(--amarelo-2);
+}
+
+.footer__textos {
+    color: var(--branco);
+    font-family: var(--fonte-medium);
+}
+
+.footer__textos:last-child {
+    display: flex;
+    column-gap: 1rem;
+}
